@@ -1,0 +1,6 @@
+name = "cloudflare-youtube-downloader"
+main = "src/index.ts"
+compatibility_date = "2022-09-17"
+
+[build]
+command = "npm run build"
