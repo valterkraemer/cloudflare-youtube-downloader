@@ -33,7 +33,7 @@ export function getIndexPageHTML(hostname: string) {
 <h1>Download from Youtube</h1>
 
 <p>Modify YouTube URL to <code>https://www.youtube<b>.${domain}</b>${dotCom}/watch?v=xyzasfd</code> to download the video.</p>
-<p>You can also list the quality alternatives by modifying the URL to <code>https://www.youtube<b>.list.${domain}</b>${dotCom}/watch?v=xyzasfd</code>.
+<p>You can also list the quality alternatives by modifying the URL to <code>https://www.youtube<b>.${domain}-list</b>${dotCom}/watch?v=xyzasfd</code>.
 `);
 }
 

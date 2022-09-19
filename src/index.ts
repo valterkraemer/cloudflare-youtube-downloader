@@ -3,7 +3,7 @@ import { Format } from "./types";
 
 const DOMAIN = "https://www.youtube.com";
 
-addEventListener("fetch", async (event) => {
+addEventListener("fetch", async (event: FetchEvent) => {
   try {
     event.respondWith(handleRequest(event.request));
   } catch (error: any) {
@@ -16,7 +16,7 @@ async function handleRequest(request: Request) {
 
   const afterOrigin = href.substring(origin.length); // /watch?v=xyzasdf
 
-  const showList = hostname.includes(".list.");
+  const showList = hostname.includes("-list.");
   const videoId = searchParams.get("v");
 
   if (!videoId) {
