@@ -20,13 +20,20 @@ function getHTML(body: string) {
 
 export function getIndexPageHTML(hostname: string) {
   const index = hostname.lastIndexOf("youtube.");
-  const domain = hostname.substring(index + 8);
+  let domain = hostname.substring(index + 8);
+
+  // Don't make .com bolded
+  let dotCom = "";
+  if (domain.endsWith(".com")) {
+    dotCom = ".com";
+    domain = domain.slice(0, -dotCom.length);
+  }
 
   return minify(`
 <h1>Download from Youtube</h1>
 
-<p>Modify YouTube URL to <code>https://www.youtube.<b>${domain}</b>/watch?v=xyzasfd</code> to download the video.</p>
-<p>You can also list the quality alternatives by modifying the URL to <code>https://www.youtube.<b>${domain}.list</b>.com/watch?v=xyzasfd</code>.
+<p>Modify YouTube URL to <code>https://www.youtube<b>.${domain}</b>${dotCom}/watch?v=xyzasfd</code> to download the video.</p>
+<p>You can also list the quality alternatives by modifying the URL to <code>https://www.youtube<b>.list.${domain}</b>${dotCom}/watch?v=xyzasfd</code>.
 `);
 }
 
